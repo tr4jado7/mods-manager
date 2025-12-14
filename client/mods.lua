@@ -244,7 +244,7 @@ function Mods:onRender()
 
     dxDrawRectangleRounded(x + resp(25), y + resp(51), resp(735), resp(2), rgba(255, 255, 255, 0.02 * fade), 1)
 
-    dxDrawText("Teleporte-se para diversos locais através deste painel clique nos botões abaixo", x + resp(25), y + resp(64), resp(287), 0, rgba(255, 255, 255, 0.25 * fade), 1, getFont("medium", 12), "left", "top", false, true)
+    dxDrawText("Ative e desative modelos de nosso servidor conforme necessita.", x + resp(25), y + resp(64), resp(287), 0, rgba(255, 255, 255, 0.25 * fade), 1, getFont("medium", 12), "left", "top", false, true)
 
     do
         local hover = isCursorOver(x + resp(749), y + resp(24), resp(12), resp(12))
@@ -331,7 +331,7 @@ function Mods:onRender()
     local search = self.editbox.search.properties.text
     local empty = search == ""
 
-    if search ~= self.search.last or empty then
+    if (search ~= self.search.last or empty) and self.modsList ~= {} then
         self.search.last = search
         self.search.result = {}
 
